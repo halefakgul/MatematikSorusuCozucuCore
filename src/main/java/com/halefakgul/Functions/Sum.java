@@ -1,4 +1,9 @@
 package com.halefakgul.Functions;
 
-public class Sum {
+import java.util.Collection;
+
+public class Sum <T>{
+    Collection<T> variables;
+
+    
 }
