@@ -69,28 +69,11 @@ public class MatematikSorusuCozucuCore {
                 printer.print(line + "; ");
             }
 
-            /*while (file.hasNextLine()){
-                String line = file.nextLine();
-                line.replace("println", "System.out.println");
-                printer.print(line + " ");
-            }*/
             printer.print("}}");
             printer.close();
 
-            /*
-            System.out.println("javac " + javaOutput.getName());
-            System.out.println("java " + javaOutput.getName().replace(".java", ""));
-            Runtime.getRuntime().exec("javac " + javaOutput.getName());
-            Runtime.getRuntime().exec("java " + javaOutput.getName().replace(".java", ""));*/
+            InputStream stream = new ProcessBuilder("javac", javaOutput.getName()).start().getInputStream();
 
-
-            //Runtime.getRuntime().exec("javac " + javaOutput.getName());
-            ProcessBuilder processBuilder = new ProcessBuilder("javac", javaOutput.getName());
-            processBuilder.start();
-            processBuilder.command("java", javaOutput.getName().replace(".java", ""));
-            InputStream stream = processBuilder.start().getInputStream();
-
-            //processBuilder.start();
             Scanner ss = new Scanner(stream);
             while (ss.hasNext()){
                 System.out.println(ss.next());
@@ -106,11 +89,21 @@ public class MatematikSorusuCozucuCore {
     }
 
     private static void execute(){
+        File toExecute = null;
         try {
-
-
-        }catch(Exception e){
-
+            toExecute = getFileIfAvailable(".msc", arguments);
+            ProcessBuilder processBuilder = new ProcessBuilder("java", toExecute.getName().replace(".msc", ""));
+            InputStream stream = processBuilder.start().getInputStream();
+            Scanner ss = new Scanner(stream);
+            while (ss.hasNext()){
+                System.out.println(ss.next());
+            }
+        }catch(FileNotFoundException | NullPointerException e){
+            System.err.println(fileNotFoundMessage);
+            e.printStackTrace();
+        }catch(IOException e){
+            System.err.println(ioExceptionMessage);
+            e.printStackTrace();
         }
     }
 
