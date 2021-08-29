@@ -73,12 +73,11 @@ public class MatematikSorusuCozucuCore {
             printer.close();
 
             InputStream stream = new ProcessBuilder("javac", javaOutput.getName()).start().getInputStream();
-
             Scanner ss = new Scanner(stream);
             while (ss.hasNext()){
                 System.out.println(ss.next());
             }
-            //javaOutput.deleteOnExit();
+            javaOutput.deleteOnExit();
         } catch (FileNotFoundException | NullPointerException e) {
             System.err.println(fileNotFoundMessage);
             e.printStackTrace();
