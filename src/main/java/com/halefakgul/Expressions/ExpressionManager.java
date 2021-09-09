@@ -21,6 +21,9 @@ public class ExpressionManager {
 
 
     public Expression getExpression(String arg){
+        for (ExpressionTypes exp : expressions){
+
+        }
         /*for (ExpressionTypes t : expressions){
             if (t.hasAliase(arg)){
                 switch(t){
