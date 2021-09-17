@@ -8,7 +8,10 @@ import java.util.ArrayList;
 
 
 //Expression manager kur arraylist e bütün expressionları al sonra içine getExpression gibi metodlar ekle aliase e uyan exp i return etsin
-public enum ExpressionTypes {
+
+
+
+public enum ExpressionTypes {/*
     CALCULATE("calculate", "cal"),
     CREATE("create", "cr"),
     DEFAULT("", "<none>");
@@ -35,5 +38,5 @@ public enum ExpressionTypes {
             }
         }
         return false;
-    }
+    }*/
 }

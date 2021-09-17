@@ -1,6 +1,6 @@
 package com.halefakgul.Expressions;
 
-public interface IExpression <T>{
-    public T getResult();
+public interface IExpression{
+    public String getCode();
     public String toString();
 }

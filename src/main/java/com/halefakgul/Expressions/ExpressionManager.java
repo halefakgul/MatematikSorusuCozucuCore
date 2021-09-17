@@ -1,40 +1,37 @@
 package com.halefakgul.Expressions;
 
+import com.halefakgul.Expressions.BasicMathExpressions.Square;
+
 import java.util.ArrayList;
 
 public class ExpressionManager {
-    //Map<Expression, ExpressionTypes> expressions;
-    ArrayList<ExpressionTypes> expressions;
+    private ArrayList<IExpression> expressions;
 
     public ExpressionManager(){
-        //expressions = new HashMap<>();
-        //expressions.put((BasePrimaryExpression)new Calculate(), ExpressionTypes.CALCULATE);
-        add(ExpressionTypes.CALCULATE);
-        add(ExpressionTypes.CREATE);
-        add(ExpressionTypes.DEFAULT);
+        expressions = new ArrayList<>();
+        expressions.add(new Square());
     }
 
-
-    private void add(ExpressionTypes type){
+    public void add(IExpression type){
         this.expressions.add(type);
     }
 
 
-    public Expression getExpression(String arg){
-        for (ExpressionTypes exp : expressions){
-
-        }
-        /*for (ExpressionTypes t : expressions){
-            if (t.hasAliase(arg)){
-                switch(t){
-                    case CALCULATE:
-                        break;
-                    case CREATE:
-                            break;
+    public IExpression getExpression(String arg){
+        for (IExpression exp : expressions){
+            if (exp instanceof ICommand){
+                if (((ICommand) exp).hasCommand(arg)){
+                    return exp;
                 }
-                return t;
             }
-        }*/
+        }
         return null;
+    }
+
+    public Object getExpressionManager(){
+        return this;
+    }
+    public ArrayList<IExpression> getExpressions(){
+        return this.expressions;
     }
 }

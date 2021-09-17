@@ -1,37 +1,27 @@
-package com.halefakgul.Expressions;
+package com.halefakgul.Expressions.BaseExpressions;
+
+import com.halefakgul.Expressions.Expression;
+import com.halefakgul.Expressions.ICommand;
 
 import java.util.ArrayList;
 
-public abstract class FullExpression extends Expression implements IArguments, ICommand{
-    private ArrayList<String> arguments;
+public abstract class C_Expression extends Expression implements ICommand {
     private ArrayList<String> commands;
 
+
     private void initalize(){
-        this.arguments = new ArrayList<>();
         this.commands = new ArrayList<>();
     }
-    public FullExpression(){
-        initalize();
-    }
-    public FullExpression(String ... arguments){
-        initalize();
-        setArguments(arguments);
-    }
-    public FullExpression(String[] arguments, String[] commands){
-        initalize();
-        setArguments(arguments);
-        setCommands(commands);
-    }
 
-    public void setArguments(String ... arguments){
-        for (String argument : arguments){
-            this.arguments.add(argument);
-        }
+    public C_Expression(){
+        initalize();
     }
-    public void setArguments(ArrayList<String> arguments){
-        for (String argument : arguments){
-            this.arguments.add(argument);
-        }
+    public C_Expression(String ... arguments){
+        initalize();
+    }
+    public C_Expression(String[] arguments, String[] commands){
+        initalize();
+        setCommands(commands);
     }
 
     public void setCommands(String ... commands){
