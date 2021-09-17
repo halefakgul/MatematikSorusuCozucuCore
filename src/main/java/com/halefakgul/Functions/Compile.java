@@ -17,14 +17,19 @@ public class Compile extends FunctionBase{
 
     public Compile(Core core){
         super(core);
+        this.setFunction("compile");
+    }
+
+
+    public void run(){
         if (arguments == null || arguments.length == 0){
             messager.printErrorMessage(Messages.fileNotFoundMessage);
             return;
         }
         try {
-            compiled = FileUtils.getFileIfAvailable(".msc", arguments);
+            compiled = FileUtils.getFileIfAvailable(".mscc", arguments);
             file = new Scanner(compiled);
-            javaOutputFileName = compiled.getName().replace(".msc", ".java");
+            javaOutputFileName = compiled.getName().replace(".mscc", ".java");
             javaOutput = new File(javaOutputFileName);
             if (!javaOutput.exists()){
                 javaOutput.createNewFile();
@@ -65,6 +70,6 @@ public class Compile extends FunctionBase{
     }
 
     private String getClassDef(){
-        return "public class "+ compiled.getName().replace(".msc", "") +"{+ " + imports + "public static void main(String[] args){ ";
+        return "public class "+ compiled.getName().replace(".mscc", "") +"{ " + imports + "public static void main(String[] args){ ";
     }
 }

@@ -13,11 +13,14 @@ import java.util.Scanner;
 public class Execute extends FunctionBase{
     public Execute(Core core) {
         super(core);
+        this.setFunction("execute");
+    }
+    public void run(){
 
         File toExecute = null;
         try {
-            toExecute = FileUtils.getFileIfAvailable(".msc", arguments);
-            ProcessBuilder processBuilder = new ProcessBuilder("java", toExecute.getName().replace(".msc", ""));
+            toExecute = FileUtils.getFileIfAvailable(".mscc", arguments);
+            ProcessBuilder processBuilder = new ProcessBuilder("java", toExecute.getName().replace(".mscc", ""));
             InputStream stream = processBuilder.start().getInputStream();
             Scanner ss = new Scanner(stream);
             while (ss.hasNext()){
@@ -30,7 +33,5 @@ public class Execute extends FunctionBase{
             messager.printErrorMessage(Messages.ioExceptionMessage);
             e.printStackTrace();
         }
-
-
     }
 }
