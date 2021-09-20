@@ -4,7 +4,7 @@ Merhaba 👋🏻 Biz yaz okulunda Programlama Dilleri dersini almış Fırat Ün
 <p>&nbsp;</p>
 
 
-# ***MatematikSorusuCozucu***
+# ***MatematikSorusuCozucuCore***
 
 Projenin Amacı: Üniversite sınavına hazırlanan öğrencilere karşılaşabilecekleri soruları anlatarak çözebilen basit yazılışa sahip bir skript dili sunabilmek.
 
@@ -17,6 +17,11 @@ Projenin Amacı: Üniversite sınavına hazırlanan öğrencilere karşılaşabi
 ### İlerleyen zamanlarda herkesin erişimine müsait olması için çabalıyoruz 🙏🏻
 
 [Dökümanlara göz atmak için tıklayınız](https://github.com/halefakgul/MatematikSorusuCozucuCore/tree/main/src/docs)
+
+
+
+
+[Geliştirilmeye devam eden MSC arayüz ortamını görmek için tıklayınız](https://github.com/halefakgul/MatematikSorusuCozucu)
 
 
 <p>&nbsp;</p>
