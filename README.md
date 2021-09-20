@@ -1,8 +1,30 @@
-# MatematikSorusuCozucuCore
+Merhaba 👋🏻 Biz yaz okulunda Programlama Dilleri dersini almış Fırat Üniversitesi öğrencileriyiz. Bu ders kapsamında gerçek sorunlara çözüm arayışında olacak ve belirlenen bir soruna yazılım ile çözüm getirmeyi amaçlayacağız.
 
-### How to install, how to use, docs and api will be published when the project reach the Beta version.
+<p>&nbsp;</p>
+<p>&nbsp;</p>
 
-### Here are some photos about the application
+
+# ***MatematikSorusuCozucu***
+
+Projenin Amacı: Üniversite sınavına hazırlanan öğrencilere karşılaşabilecekleri soruları anlatarak çözebilen basit yazılışa sahip bir skript dili sunabilmek.
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+
+### Proje şuanda sadece geliştiricilere müsait
+
+### İlerleyen zamanlarda herkesin erişimine müsait olması için çabalıyoruz 🙏🏻
+
+[Dökümanlara göz atmak için tıklayınız]()
+
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+
+Örnek görüntüler:
 
 ![Resim1](src/images/1.png)
 
