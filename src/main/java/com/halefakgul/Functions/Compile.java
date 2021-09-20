@@ -90,7 +90,7 @@ public class Compile extends FunctionBase{
             while (ss.hasNext()){
                 System.out.println(ss.next());
             }
-            //javaOutput.deleteOnExit();
+            javaOutput.deleteOnExit();
         } catch (FileNotFoundException | NullPointerException e) {
             messager.printErrorMessage(Messages.fileNotFoundMessage);
             e.printStackTrace();
