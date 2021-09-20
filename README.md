@@ -23,9 +23,6 @@ Projenin Amacı: Üniversite sınavına hazırlanan öğrencilere karşılaşabi
 
 [Geliştirilmeye devam eden MSC arayüz ortamını görmek için tıklayınız](https://github.com/halefakgul/MatematikSorusuCozucu)
 
-
-<p>&nbsp;</p>
-<p>&nbsp;</p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 
