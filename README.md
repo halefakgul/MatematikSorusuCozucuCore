@@ -16,7 +16,7 @@ Projenin Amacı: Üniversite sınavına hazırlanan öğrencilere karşılaşabi
 
 ### İlerleyen zamanlarda herkesin erişimine müsait olması için çabalıyoruz 🙏🏻
 
-[Dökümanlara göz atmak için tıklayınız]()
+[Dökümanlara göz atmak için tıklayınız](https://github.com/halefakgul/MatematikSorusuCozucuCore/tree/main/src/docs)
 
 
 <p>&nbsp;</p>
