@@ -1,6 +1,9 @@
 package com.halefakgul.Functions;
 
 import com.halefakgul.Core;
+import com.halefakgul.Expressions.BaseExpressions.Solve;
+import com.halefakgul.Expressions.ExpressionManager;
+import com.halefakgul.Expressions.IExpressionBase;
 import com.halefakgul.Functions.FunctionUtils.FileUtils;
 import com.halefakgul.Messager.Messages;
 
@@ -14,10 +17,12 @@ public class Compile extends FunctionBase{
     private String javaOutputFileName = "";
     private String imports = "";
     private PrintWriter printer = null;
+    private ExpressionManager expressions;
 
     public Compile(Core core){
         super(core);
         this.setFunction("compile");
+        this.expressions = core.expressions;
     }
 
 
@@ -42,13 +47,39 @@ public class Compile extends FunctionBase{
             while (file.hasNextLine()){
                 code += file.nextLine();
             }
-            String[] lines = code.split(";");//splits for every ;
-            for (String line : lines){
+            String[] identified = code.split(";");//splits for every ;
+            for (String section : identified){
+                IExpressionBase exp = null;
+                String readedWords = "";
+                Boolean isSolve = false;
+                for (String word : section.split(" ")){
+                    if (exp != null){
+                        exp.addArgument(word);
+                        continue;
+                    }
+                    exp = expressions.getExpression(word);
+                    if (exp instanceof Solve){
+                        isSolve = true;
+                        exp = null;
+                        continue;
+                    }
 
-                if (line.startsWith("println")){
-                    line = "System.out." + line;
+                    if (exp == null){
+                        readedWords += word + " ";
+                        continue;
+                    }
+
                 }
-                printer.print(line + "; ");//replaces the ;
+                if (isSolve && exp != null){
+                    Solve solve = new Solve(exp);
+                    printer.print(solve.getCode() + ";");
+                    isSolve = false;
+                }else if (exp != null){
+                    printer.print(readedWords + expressions.getCode(exp) + ";");
+                    exp.clearArguments();
+                }else{
+                    printer.print(section +"; ");
+                }
             }
 
             printer.print("}}");
@@ -59,7 +90,7 @@ public class Compile extends FunctionBase{
             while (ss.hasNext()){
                 System.out.println(ss.next());
             }
-            javaOutput.deleteOnExit();
+            //javaOutput.deleteOnExit();
         } catch (FileNotFoundException | NullPointerException e) {
             messager.printErrorMessage(Messages.fileNotFoundMessage);
             e.printStackTrace();
